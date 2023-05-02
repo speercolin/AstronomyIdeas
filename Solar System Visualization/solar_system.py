@@ -46,7 +46,17 @@ mars_animation_speed = 0.01
 # Defining Jupiter & speed
 jupiter_radius = 35
 jupiter_angle = 0
-jupiter_animation_speed = 0.001
+jupiter_animation_speed = 0.01
+
+# Defining Saturn & speed
+saturn_radius = 30
+saturn_angle = 0
+saturn_animation_speed = 0.01
+
+# Defining Uranus & speed
+uranus_radius = 20
+uranus_angle = 0
+uranus_animation_speed = 0.01
 
 # Window loop
 running = True
@@ -105,6 +115,24 @@ while running:
 
     # Drawing Jupiter
     pygame.draw.circle(screen, (201, 144, 57), jupiter_center, jupiter_radius)
+
+    # Creating the path of Saturn
+    saturn_angle += saturn_animation_speed
+    saturn_x = center[0] + (sun_radius + 400) * math.cos(saturn_angle * math.pi / 180)
+    saturn_y = center[1] + (sun_radius + 400) * math.sin(saturn_angle * math.pi / 180)
+    saturn_center = (int(saturn_x), int(saturn_y))
+
+    # Drawing Saturn
+    pygame.draw.circle(screen, (191, 189, 175), saturn_center, saturn_radius)
+
+    # Creating the path of Uranus
+    uranus_angle += uranus_animation_speed
+    uranus_x = center[0] + (sun_radius + 500) * math.cos(uranus_angle * math.pi / 180)
+    uranus_y = center[1] + (sun_radius + 500) * math.sin(uranus_angle * math.pi / 180)
+    uranus_center = (int(uranus_x), int(uranus_y))
+
+    # Drawing Uranus
+    pygame.draw.circle(screen, (178, 214, 219), uranus_center, uranus_radius)
 
     # Updating the screen
     pygame.display.flip()
